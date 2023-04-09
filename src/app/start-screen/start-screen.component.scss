@@ -1,0 +1,35 @@
+.start-screen{
+    width: 100vw;
+    height: 100vh;
+    max-width: 100%;
+    // background-image: url("../../assets/img/table.jpg");
+    background-color: #404040;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    // position: relative;
+
+    img{
+        height: auto;
+        width: 30vw;
+    }
+}
+
+.start-label-box{
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 200px;
+    display: flex;
+    justify-content: center;
+
+    img{
+        height: auto;
+        width: 20vw;
+
+        &:hover {
+            filter: brightness(1.2);
+            cursor: pointer;
+        }
+    }
+}
