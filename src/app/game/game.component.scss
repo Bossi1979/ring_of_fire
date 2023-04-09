@@ -24,9 +24,14 @@
     }
 }
 
+.played-card{
+    right: 30px;
+    transform: scale(1) translateX(250px) translateY(-250px) rotate(-10deg);
+}
+
 .pick-card{
     // transition: all 125ms ease-in-out;
-    animation: pick-card-animation 1.25s ease-in-out;
+    animation: pick-card-animation 1s ease-in-out;
     transform: scale(1) translateX(250px) translateY(-250px) rotate(-10deg);
 }
 
@@ -45,3 +50,23 @@
         transform: scale(1) translateX(250px) translateY(-250px) rotate(-10deg);
     }
 }
+
+.player-position{
+    position:absolute;
+    right: 0px;
+    
+}
+
+.btn-add{
+    position: absolute;
+    right: 32px;
+    bottom: 32px;
+}
+
+.pin-bottom{
+    position: absolute;
+    bottom: 32px;
+    right: 100px;
+    left: 100px;
+}
+
