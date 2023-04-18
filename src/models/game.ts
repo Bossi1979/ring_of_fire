@@ -7,6 +7,7 @@ export class Game {
     public currentCard: string = "";
 
     constructor() {
+        
         for (let i = 1; i < 14; i++) {
             this.stack.push(`ace_${i}.png`);
             this.stack.push(`clubs_${i}.png`);
@@ -14,6 +15,8 @@ export class Game {
             this.stack.push(`hearts_${i}.png`);
         }
         shuffle(this.stack);
+        this.stack[52] = this.stack[0];
+        this.stack[0] = ('card_empty.png');
     }
 
     public toJSON() {
@@ -46,4 +49,15 @@ function shuffle(array) {
     }
 
     return array;
+}
+
+function newStack(){
+    for (let i = 1; i < 14; i++) {
+        this.stack.push(`ace_${i}.png`);
+        this.stack.push(`clubs_${i}.png`);
+        this.stack.push(`diamonds_${i}.png`);
+        this.stack.push(`hearts_${i}.png`);
+    }
+    shuffle(this.stack);
+   
 }

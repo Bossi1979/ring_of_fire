@@ -1,7 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Input, OnChanges, OnInit } from '@angular/core';
 import {MatDialog, MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
-import { Game } from 'src/models/game';
-
+import { GameDescriptionComponent } from '../game-description/game-description.component';
 
 @Component({
   selector: 'app-dialog-add-player',
@@ -10,14 +9,17 @@ import { Game } from 'src/models/game';
 })
 export class DialogAddPlayerComponent{
   name: string = '';
+  
+  // @Input() descript: GameDescriptionComponent;
+  
+  
 
-  constructor(public dialogRef: MatDialogRef<DialogAddPlayerComponent>, 
-    ) {
-      // this.users = this.game.players;
-      // console.log(this.users);
+  constructor(public dialogRef: MatDialogRef<DialogAddPlayerComponent>) {
+
   }
 
   onNoClick(){
     this.dialogRef.close();
   }
+
 }

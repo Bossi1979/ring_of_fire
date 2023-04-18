@@ -25,13 +25,14 @@ export class GameComponent implements OnInit {
 
     this.route.params.subscribe(params => {
       console.log('params', params['id']);
+
       this.gameId = params['id'];
       this.firestore
         .collection('games')
         .doc(this.gameId)
         .valueChanges()
         .subscribe((game: any) => {
-          console.log('Game update', game)
+          // console.log('Game update', game)
           this.game.currentPlayer = game.currentPlayer;
           this.game.playedCard = game.playedCard;
           this.game.players = game.players;
@@ -48,24 +49,13 @@ export class GameComponent implements OnInit {
   }
 
   takeCard() {
-    if (!this.game.pickCardAnimation) {
-      this.game.currentCard = this.game.stack.pop();
-      this.game.pickCardAnimation = true;
-
-      this.game.currentPlayer++;
-      this.game.currentPlayer = this.game.currentPlayer % this.game.players.length;
-      this.saveGame();
-      setTimeout(() => {
-        this.game.playedCard.push(this.game.currentCard);
-        this.game.pickCardAnimation = false;
-        this.saveGame();
-      }, 1000);
-    }
+    if (this.enoughPlayersAndRoundNotEnds()) this.drawCard();
+    if (this.blackCardDraw()) this.gameOver = true;
+    if (this.stackClickedWithBlackCardDraw()) this.startNewRound();
   }
 
   openDialog(): void {
     const dialogRef = this.dialog.open(DialogAddPlayerComponent);
-
     dialogRef.afterClosed().subscribe(name => {
       if (name && name.length > 0) this.game.players.push(name);
       this.saveGame();
@@ -78,5 +68,38 @@ export class GameComponent implements OnInit {
       .doc(this.gameId)
       .update(this.game.toJSON())
   }
+
+
+  
+  enoughPlayersAndRoundNotEnds(){
+    return !this.game.pickCardAnimation && this.game.players.length > 1 && !this.gameOver;
+  }
+
+  drawCard() {
+    this.game.currentCard = this.game.stack.pop();
+    this.game.pickCardAnimation = true;
+    this.game.currentPlayer++;
+    this.game.currentPlayer = this.game.currentPlayer % this.game.players.length;
+    this.saveGame();
+    setTimeout(() => {
+      this.game.playedCard.push(this.game.currentCard);
+      this.game.pickCardAnimation = false;
+      this.saveGame();
+    }, 1000);
+  }
+
+  blackCardDraw(){
+    return this.game.playedCard.length == 52;
+  }
+
+  startNewRound(){
+    this.game.playedCard = [];
+    this.newGame();
+    this.gameOver = false;
+  }
+
+  stackClickedWithBlackCardDraw(){
+    return this.game.playedCard.length == 53;
+  }  
 
 }

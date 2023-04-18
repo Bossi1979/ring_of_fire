@@ -20,8 +20,10 @@
 
 </div>
 
-<button mat-fab color="primary" class="btn-add" (click)="openDialog()">
+<button mat-fab color="primary" class="btn-add" (click)="openDialog()" *ngIf="game.players.length<=3">
     <mat-icon>add</mat-icon>
 </button>
 
-<app-game-description class="pin-bottom" [card]="game.currentCard"></app-game-description>
+
+
+<app-game-description class="pin-bottom" [gameEnd]="gameOver" [card]="game.currentCard" [ply]="game.players" [plyCards] ="game.playedCard"></app-game-description>
