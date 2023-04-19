@@ -22,17 +22,15 @@ export class GameComponent implements OnInit {
 
   ngOnInit(): void {
     this.newGame();
+    this.createFirestoreArray();
+  }
 
+
+  createFirestoreArray(){
     this.route.params.subscribe(params => {
       console.log('params', params['id']);
-
       this.gameId = params['id'];
-      this.firestore
-        .collection('games')
-        .doc(this.gameId)
-        .valueChanges()
-        .subscribe((game: any) => {
-          // console.log('Game update', game)
+      this.firestore.collection('games').doc(this.gameId).valueChanges().subscribe((game: any) => {
           this.game.currentPlayer = game.currentPlayer;
           this.game.playedCard = game.playedCard;
           this.game.players = game.players;

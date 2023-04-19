@@ -10,13 +10,7 @@ import { GameDescriptionComponent } from '../game-description/game-description.c
 export class DialogAddPlayerComponent{
   name: string = '';
   
-  // @Input() descript: GameDescriptionComponent;
-  
-  
-
-  constructor(public dialogRef: MatDialogRef<DialogAddPlayerComponent>) {
-
-  }
+  constructor(public dialogRef: MatDialogRef<DialogAddPlayerComponent>) {}
 
   onNoClick(){
     this.dialogRef.close();

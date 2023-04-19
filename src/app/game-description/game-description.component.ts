@@ -1,6 +1,4 @@
 import { Component, Input, OnChanges, OnInit } from '@angular/core';
-// import { Game } from 'src/models/game';
-// import { GameComponent } from '../game/game.component';
 @Component({
   selector: 'app-game-description',
   templateUrl: './game-description.component.html',
@@ -38,8 +36,6 @@ export class GameDescriptionComponent implements OnInit, OnChanges  {
     },
   ];
 
-  
-
   title = '';
   description = '';
   @Input() card;
@@ -47,18 +43,9 @@ export class GameDescriptionComponent implements OnInit, OnChanges  {
   @Input() gameEnd;
   @Input() plyCards;
   
-  
-  // game: Game;
-  // game;
+  constructor() {}
 
-
-  constructor() {
-    // this.game = game;
-  }
-
-  ngOnInit() {
-
-  }
+  ngOnInit() {}
 
   ngOnChanges() {
     if (this.cardDraw()) this.cardDrawText();
@@ -94,5 +81,4 @@ export class GameDescriptionComponent implements OnInit, OnChanges  {
     this.title = this.cardAction[cardNumber - 1].title;
     this.description = this.cardAction[cardNumber - 1].description;
   }
-
 }
