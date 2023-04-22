@@ -1,19 +1,30 @@
 .player{
     display: flex;
-    width: 300px;
+    // width: 300px;
+    min-width: 100px;
     align-items: center;
     background-color: rgba(100, 100, 100, 0.5);
-    border-top-left-radius: 50px;
+    border-bottom-right-radius: 50px;
     border-bottom-left-radius: 50px;
+    flex-direction: column;
+    gap: 10px;
+    margin-left: 16px;
 
     span{
         font-size: 32px;
-        margin-left: 16px;
+        margin-top: 16px;
+        max-width: 68px;
+        overflow: hidden;
+        line-height: 30px;
+        font-size: 20px;
+        margin: 0px 3px;
+        // margin-left: 16px;
+        // margin-right: 16px;
     }
     
     img{
-        width: 80px;
-        height: 80px;
+        width: 70px;
+        height: 70px;
         object-fit: cover;
         border-radius: 100%;
         opacity: 0.5;

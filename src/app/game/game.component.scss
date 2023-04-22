@@ -1,4 +1,4 @@
-.field{
+.field {
     height: 100vh;
     width: 100vw;
     max-width: 100%;
@@ -8,65 +8,86 @@
     align-items: center;
 }
 
-.card-stack{
+.card-stack {
     position: relative;
-    img{
+
+    img {
         position: absolute;
         width: 120px;
     }
 }
 
-.top-card{
+.top-card {
     cursor: pointer;
     transition: all 125ms ease-in-out;
-    &:hover{
+
+    &:hover {
         transform: scale(1.1) translateY(-10px);
     }
 }
 
-.played-card{
-    right: 30px;
-    transform: scale(1) translateX(250px) translateY(-250px) rotate(-10deg);
+.played-card {
+    right: 100px;
+    transform: scale(1) translateX(180px) translateY(-250px) rotate(-10deg);
 }
 
-.pick-card{
+.pick-card {
     // transition: all 125ms ease-in-out;
     animation: pick-card-animation 1s ease-in-out;
-    transform: scale(1) translateX(250px) translateY(-250px) rotate(-10deg);
+    transform: scale(1) translateX(180px) translateY(-250px) rotate(-10deg);
 }
 
 @keyframes pick-card-animation {
-    0%{
+    0% {
         transform: scale(1);
     }
-    30%{
+
+    30% {
         transform: scale(1.7);
     }
-    50%{
+
+    50% {
         transform: scale(1.7);
 
     }
-    100%{
-        transform: scale(1) translateX(250px) translateY(-250px) rotate(-10deg);
+
+    100% {
+        transform: scale(1) translateX(110px) translateY(-250px) rotate(-10deg);
     }
 }
 
-.player-position{
-    position:absolute;
+.player-position {
+    position: absolute;
     right: 0px;
     z-index: 1;
 }
 
-.btn-add{
+.btn-add {
     position: absolute;
     right: 32px;
     bottom: 32px;
 }
 
-.pin-bottom{
+.pin-bottom {
     position: absolute;
     bottom: 32px;
     right: 100px;
     left: 100px;
 }
 
+@media screen and (max-width:800px) {
+    .player-position {
+        top: 0px;
+        right: unset;
+        position: unset !important;
+    }
+
+    .pin-bottom {
+        position: absolute;
+        bottom: 10px;
+        right: 100px;
+        left: 10px;
+    }
+
+
+}

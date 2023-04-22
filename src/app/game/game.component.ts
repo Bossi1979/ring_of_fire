@@ -48,8 +48,8 @@ export class GameComponent implements OnInit {
 
   takeCard() {
     if (this.enoughPlayersAndRoundNotEnds()) this.drawCard();
-    if (this.blackCardDraw()) this.gameOver = true;
-    if (this.stackClickedWithBlackCardDraw()) this.startNewRound();
+    if (this.blankCardDraw()) this.gameOver = true;
+    if (this.stackClickedWithBlankCardDraw()) this.startNewRound();
   }
 
   openDialog(): void {
@@ -67,8 +67,6 @@ export class GameComponent implements OnInit {
       .update(this.game.toJSON())
   }
 
-
-  
   enoughPlayersAndRoundNotEnds(){
     return !this.game.pickCardAnimation && this.game.players.length > 1 && !this.gameOver;
   }
@@ -86,7 +84,7 @@ export class GameComponent implements OnInit {
     }, 1000);
   }
 
-  blackCardDraw(){
+  blankCardDraw(){
     return this.game.playedCard.length == 52;
   }
 
@@ -96,7 +94,7 @@ export class GameComponent implements OnInit {
     this.gameOver = false;
   }
 
-  stackClickedWithBlackCardDraw(){
+  stackClickedWithBlankCardDraw(){
     return this.game.playedCard.length == 53;
   }  
 
