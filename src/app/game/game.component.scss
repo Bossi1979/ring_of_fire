@@ -75,6 +75,16 @@
     left: 100px;
 }
 
+.player-container{
+    width: 100%; 
+    display: flex; 
+    overflow: hidden; 
+    height: auto; 
+    flex-wrap: wrap; 
+    position: absolute; 
+    justify-content: center;
+}
+
 @media screen and (max-width:800px) {
     .player-position {
         top: 0px;

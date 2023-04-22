@@ -2,6 +2,7 @@ import { Component, OnInit, inject } from '@angular/core';
 import { Game } from 'src/models/game';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogAddPlayerComponent } from '../dialog-add-player/dialog-add-player.component';
+import { EditProfilComponent } from '../edit-profil/edit-profil.component';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { ActivatedRoute } from '@angular/router';
 import { timeout } from 'rxjs';
@@ -16,6 +17,7 @@ export class GameComponent implements OnInit {
   gameId: string = '';
   gameOver = false;
   disableEntry = false;
+  imageProfileArray: string = '';
 
   constructor(private route: ActivatedRoute, private firestore: AngularFirestore,
     public dialog: MatDialog) { }
@@ -34,6 +36,7 @@ export class GameComponent implements OnInit {
           this.game.currentPlayer = game.currentPlayer;
           this.game.playedCard = game.playedCard;
           this.game.players = game.players;
+          this.game.imgProfile = game.imgProfile;
           this.game.stack = game.stack;
           this.game.pickCardAnimation = game.pickCardAnimation;
           this.game.currentCard = game.currentCard;
@@ -55,9 +58,23 @@ export class GameComponent implements OnInit {
   openDialog(): void {
     const dialogRef = this.dialog.open(DialogAddPlayerComponent);
     dialogRef.afterClosed().subscribe(name => {
-      if (name && name.length > 0) this.game.players.push(name);
+      if (name && name.length > 0){
+        this.game.players.push(name);
+        this.game.imgProfile.push(this.imageProfileArray);
+      } 
       this.saveGame();
     });
+  }
+
+  openEditDialog(): void {
+    const editProfilDialog = this.dialog.open(EditProfilComponent);
+    editProfilDialog.afterClosed().subscribe(imgProfil1 => {
+      if (imgProfil1 && imgProfil1.length > 0) this.imageProfileArray = imgProfil1;
+    });
+  }
+
+  editPlayer(): void {
+    console.log('edit player');
   }
 
   saveGame() {

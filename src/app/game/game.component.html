@@ -1,9 +1,9 @@
 <app-player *ngFor="let player of game.players; let i = index;" class="player-position hide-mobile"
-    [ngStyle]="{'top.px': 50 + i*82}" [name]="player" [playerActive]="i == game.currentPlayer"></app-player>
+    [ngStyle]="{'top.px': 50 + i*82}" [name]="player" [imgP]="game.imgProfile[i]" [playerActive]="i == game.currentPlayer"></app-player>
 
-<div style="width: 100%; display: flex; overflow: hidden; height: auto; flex-wrap: wrap; position: absolute; justify-content: center;">
-<app-mobil-field *ngFor="let player of game.players; let i = index;" class="player-position"
-    [ngStyle]="{'left.px': 0 + i*120}" [name]="player" [playerActive]="i == game.currentPlayer"></app-mobil-field>
+<div class="player-container">
+    <app-mobil-field *ngFor="let player of game.players; let i = index;" class="player-position"
+        [ngStyle]="{'left.px': 0 + i*120}"  [name]="player" [playerActive]="i == game.currentPlayer"></app-mobil-field>
 </div>
 
 <div class="field">
@@ -23,7 +23,7 @@
 
 </div>
 
-<button mat-fab color="primary" class="btn-add" (click)="openDialog()" *ngIf="game.players.length<=9">
+<button mat-fab color="primary" class="btn-add" (click)="openDialog(); openEditDialog()" *ngIf="game.players.length<=9">
     <mat-icon>add</mat-icon>
 </button>
 

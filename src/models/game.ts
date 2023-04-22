@@ -6,6 +6,8 @@ export class Game {
     public pickCardAnimation = false;
     public currentCard: string = "";
 
+    public imgProfile: string[] = [];
+
     constructor() {
         
         for (let i = 1; i < 14; i++) {
@@ -26,7 +28,8 @@ export class Game {
             playedCard: this.playedCard,
             currentPlayer: this.currentPlayer,
             pickCardAnimation: this.pickCardAnimation,
-            currentCard: this.currentCard
+            currentCard: this.currentCard,
+            imgProfile: this.imgProfile,
         };
     }
 

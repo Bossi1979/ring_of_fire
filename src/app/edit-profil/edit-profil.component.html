@@ -1,0 +1,22 @@
+
+<h1 mat-dialog-title>Add Image</h1>
+
+<div mat-dialog-content>
+  <p>Please select a profilimage.</p>
+    <div class="profil-div">
+        <!-- <img mat-select src="../../assets/img/avatar.png" > -->
+        <img mat-select src="../../assets/img/businessman.png" (click)="selectedProfile(0)">
+        <img mat-select src="../../assets/img/male.png" (click)="selectedProfile(1)">
+        <img mat-select src="../../assets/img/woman.png" (click)="selectedProfile(2)">
+        <img mat-select src="../../assets/img/woman1.png" (click)="selectedProfile(3)">
+    </div>
+    <input matInput [(ngModel)]="imgProfil" style="display: none;">
+    
+    
+
+</div>
+
+<div mat-dialog-actions>
+  <!-- <button mat-button (click)="closeProfiles()" >No Thanks</button> -->
+  <button mat-button [mat-dialog-close]="imgProfil" *ngIf="imgProfil.length > 10" >Ok</button>
+</div>

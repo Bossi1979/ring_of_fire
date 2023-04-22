@@ -24,6 +24,9 @@ import { provideDatabase,getDatabase } from '@angular/fire/database';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { AngularFireModule } from '@angular/fire/compat';
 import { MobilFieldComponent } from './mobil-field/mobil-field.component';
+import { EditProfilComponent } from './edit-profil/edit-profil.component';
+
+
 
 
 
@@ -35,7 +38,8 @@ import { MobilFieldComponent } from './mobil-field/mobil-field.component';
     PlayerComponent,
     DialogAddPlayerComponent,
     GameDescriptionComponent,
-    MobilFieldComponent
+    MobilFieldComponent,
+    EditProfilComponent,
   ],
   imports: [
     BrowserModule,
