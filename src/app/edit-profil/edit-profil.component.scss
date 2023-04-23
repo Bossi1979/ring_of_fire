@@ -5,6 +5,7 @@
     height: 200px; 
     width: 300px; 
     overflow: hidden;
+    overflow-y: scroll;
     gap: 10px;
     flex-wrap: wrap;
 
@@ -17,4 +18,8 @@
             opacity: 1;
         }
     }
+}
+
+.img-selected{
+    opacity: 1 !important;
 }

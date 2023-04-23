@@ -8,5 +8,5 @@ import { Component, Input } from '@angular/core';
 export class MobilFieldComponent {
   @Input() name;
   @Input() playerActive = false;
-
+  @Input() imgP;
 }

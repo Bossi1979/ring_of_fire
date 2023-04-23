@@ -18,6 +18,7 @@ export class GameComponent implements OnInit {
   gameOver = false;
   disableEntry = false;
   imageProfileArray: string = '';
+  profileSelected = false;
 
   constructor(private route: ActivatedRoute, private firestore: AngularFirestore,
     public dialog: MatDialog) { }
@@ -58,18 +59,23 @@ export class GameComponent implements OnInit {
   openDialog(): void {
     const dialogRef = this.dialog.open(DialogAddPlayerComponent);
     dialogRef.afterClosed().subscribe(name => {
-      if (name && name.length > 0){
+      if (name && name.length > 0 && this.profileSelected){
         this.game.players.push(name);
         this.game.imgProfile.push(this.imageProfileArray);
       } 
       this.saveGame();
+      this.imageProfileArray = '';
+      this.profileSelected = false;
     });
   }
 
   openEditDialog(): void {
     const editProfilDialog = this.dialog.open(EditProfilComponent);
     editProfilDialog.afterClosed().subscribe(imgProfil1 => {
-      if (imgProfil1 && imgProfil1.length > 0) this.imageProfileArray = imgProfil1;
+      if (imgProfil1 && imgProfil1.length > 0){
+        this.imageProfileArray = imgProfil1;
+        this.profileSelected = true;
+      } 
     });
   }
 
