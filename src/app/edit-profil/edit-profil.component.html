@@ -25,5 +25,5 @@
 
 <div mat-dialog-actions>
   <!-- <button mat-button (click)="closeProfiles()" >No Thanks</button> -->
-  <button mat-button [mat-dialog-close]="imgProfil" *ngIf="imgProfil.length > 10" >Ok</button>
+  <button mat-button [disabled]="imgProfil.length == 0" [mat-dialog-close]="imgProfil">Ok</button>
 </div>
