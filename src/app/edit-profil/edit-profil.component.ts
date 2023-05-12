@@ -34,7 +34,7 @@ export class EditProfilComponent {
   selectedProfile(index){
     let i=0;
     this.imgProfil = this.profileArray[index];
-    console.log(this.imgProfil);
+    // console.log(this.imgProfil);
     // this.closeProfiles();
     for (let i = 0; i < this.profileArray.length; i++) {
       document.getElementById(`profil${i}`).classList.remove('img-selected');

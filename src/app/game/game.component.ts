@@ -31,7 +31,7 @@ export class GameComponent implements OnInit {
 
   createFirestoreArray(){
     this.route.params.subscribe(params => {
-      console.log('params', params['id']);
+      // console.log('params', params['id']);
       this.gameId = params['id'];
       this.firestore.collection('games').doc(this.gameId).valueChanges().subscribe((game: any) => {
           this.game.currentPlayer = game.currentPlayer;
@@ -80,7 +80,7 @@ export class GameComponent implements OnInit {
   }
 
   editPlayer(): void {
-    console.log('edit player');
+    // console.log('edit player');
   }
 
   saveGame() {
