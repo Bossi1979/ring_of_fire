@@ -58,7 +58,7 @@ export class GameDescriptionComponent implements OnInit, OnChanges  {
   }
 
   roundEndsText(){
-    this.title = 'Round Over1';
+    this.title = 'Round Over';
     this.description = 'All cards are played. Click on stack to start a new round.';
   }
 

@@ -25,6 +25,7 @@ import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { AngularFireModule } from '@angular/fire/compat';
 import { MobilFieldComponent } from './mobil-field/mobil-field.component';
 import { EditProfilComponent } from './edit-profil/edit-profil.component';
+import { SkillsComponent } from './skills/skills.component';
 
 
 
@@ -40,6 +41,7 @@ import { EditProfilComponent } from './edit-profil/edit-profil.component';
     GameDescriptionComponent,
     MobilFieldComponent,
     EditProfilComponent,
+    SkillsComponent,
   ],
   imports: [
     BrowserModule,
