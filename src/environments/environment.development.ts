@@ -1,4 +1,5 @@
 export const environment = {
+  production: true,
   firebase: {
     projectId: 'ring-of-fire-1cf24',
     appId: '1:456257426378:web:d597c955f8c97bf90f7533',
